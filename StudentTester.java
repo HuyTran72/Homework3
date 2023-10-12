@@ -1,9 +1,13 @@
 public class StudentTester {
     public static void main(String[] args) {
-        InpersonStudent inpersonStudent = new InpersonStudent("Kenny", "Tran", Year.junior, KT-1234, 2025, "Software Engineering", 1500, 200, 4, 1);
+        // Testing InpersonStudent
+        InpersonStudent inpersonStudent = new InpersonStudent("John", "Doe", Student.sophomore, "KT-1234", 2025, "Computer Science", 1050.5d, 50, 4, 102.23d);
         inpersonStudent.calculateSemesterFee();
         System.out.println(inpersonStudent.toString());
 
-        OnlineStudent onlineStudent = new OnlineStudent("Alice", "Smith", Year.freshman, "Engineering", 900);
+        // Testing OnlineStudent
+        // OnlineStudent onlineStudent = new OnlineStudent("John", "Doe", Year.sophomore, "KT-1234", 2025, "Computer Science", 1050.5, 50, 5, 100.2);
+        // onlineStudent.calculateSemesterFee();
+        // System.out.println(onlineStudent.toString());
     }
 }

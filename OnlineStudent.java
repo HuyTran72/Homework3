@@ -14,6 +14,7 @@ public class OnlineStudent extends Student {
         this.semesterFee = semesterFee;
     }
 
+
     public int getNumOfOnlineClasses() {
         return numOfOnlineClasses;
     }
@@ -22,7 +23,7 @@ public class OnlineStudent extends Student {
         if(numOfOnlineClasses >= 0 && numOfOnlineClasses <= 5){
             this.numOfOnlineClasses = numOfOnlineClasses;
         } else {
-            throw new IllegalArgumentException("Number of online classes must be between 0 and 5")
+            throw new IllegalArgumentException("Number of online classes must be between 0 and 5");
         }
     }
 
@@ -34,7 +35,7 @@ public class OnlineStudent extends Student {
         if(numOfInpersonClasses >= 0 && numOfInpersonClasses <= 5){
             this.numOfInpersonClasses = numOfInpersonClasses;
         } else {
-            throw new IllegalArgumentException("Number of in-person classes must be between 0 and 5")
+            throw new IllegalArgumentException("Number of in-person classes must be between 0 and 5");
 
         }
     }
@@ -63,7 +64,5 @@ public class OnlineStudent extends Student {
                 ", numOfInpersonClasses=" + numOfInpersonClasses +
                 ", semesterFee=" + semesterFee +
                 '}';
-    }
-
-    
+    }    
 }
