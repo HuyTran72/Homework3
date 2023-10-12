@@ -4,8 +4,6 @@ public class InpersonStudent extends Student {
     private int numOfClasses;
     private double semesterFee;
 
-    
-
     public InpersonStudent(String firstName, String lastName, Student.Year year, String studentId, int yearOfGraduation,
             String department, double courseFee, double parkingFee, int numOfClasses, double semesterFee) {
         super(firstName, lastName, year, studentId, yearOfGraduation, department, courseFee);
@@ -53,6 +51,20 @@ public class InpersonStudent extends Student {
         }
     }
 
+
+
     @Override
-    public 
+    public String toString() {
+        return "InpersonStudent{" + "firstName='" + getFirstName() + '\'' +
+        ", lastName='" + getLastName() + '\'' +
+        ", year=" + getYear() +
+        ", studentId='" + getStudentId() + '\'' +
+        ", yearOfGraduation=" + getYearOfGraduation() +
+        ", department='" + getDepartment() + '\'' +
+        ", courseFee=" + getCourseFee() +
+        ", parkingFee=" + parkingFee +
+        ", numOfClasses=" + numOfClasses +
+        ", semesterFee=" + semesterFee +
+        '}';
+    }
 }
