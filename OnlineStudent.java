@@ -1,18 +1,17 @@
 public class OnlineStudent extends Student {
 
-    int numOfOnlineClasses;
-    int numOfInpersonClasses;
+    private int numOfOnlineClasses;
+    private int numOfInpersonClasses;
+    private double semesterFee;
     
+    
+
     public OnlineStudent(String firstName, String lastName, Student.Year year, String studentId, int yearOfGraduation,
-            String department, double courseFee, int numOfOnlineClasses, int numOfInpersonClasses) {
+            String department, double courseFee, int numOfOnlineClasses, int numOfInpersonClasses, double semesterFee) {
         super(firstName, lastName, year, studentId, yearOfGraduation, department, courseFee);
         this.numOfOnlineClasses = numOfOnlineClasses;
         this.numOfInpersonClasses = numOfInpersonClasses;
-    }
-
-    @Override
-    public String toString() {
-        throw new UnsupportedOperationException("Unimplemented method 'toString'");
+        this.semesterFee = semesterFee;
     }
 
     public int getNumOfOnlineClasses() {
@@ -20,10 +19,10 @@ public class OnlineStudent extends Student {
     }
 
     public void setNumOfOnlineClasses(int numOfOnlineClasses) {
-        if(numOfOnlineClasses >= 1 && numOfOnlineClasses <= 5){
+        if(numOfOnlineClasses >= 0 && numOfOnlineClasses <= 5){
             this.numOfOnlineClasses = numOfOnlineClasses;
-        } esle {
-            throw new IllegalArgumentException("Number of classes must be between 1 and 5")
+        } else {
+            throw new IllegalArgumentException("Number of online classes must be between 0 and 5")
         }
     }
 
@@ -32,11 +31,38 @@ public class OnlineStudent extends Student {
     }
 
     public void setNumOfInpersonClasses(int numOfInpersonClasses) {
-        this.numOfInpersonClasses = numOfInpersonClasses;
+        if(numOfInpersonClasses >= 0 && numOfInpersonClasses <= 5){
+            this.numOfInpersonClasses = numOfInpersonClasses;
+        } else {
+            throw new IllegalArgumentException("Number of in-person classes must be between 0 and 5")
+
+        }
     }
 
-    public void calculateSemesterFee {
+    public double getSemesterFee() {
+        return semesterFee;
+    }
+    
+    public void calculateSemesterFee() {
+        double onlineClassFee = getCourseFee() * 1.2 * numOfOnlineClasses;
+        double inpersonClassFee = getCourseFee() * numOfInpersonClasses;
+        semesterFee = onlineClassFee + inpersonClassFee;
+    }
 
+    @Override
+    public String toString() {
+        return "OnlineStudent{" +
+                "firstName='" + getFirstName() + '\'' +
+                ", lastName='" + getLastName() + '\'' +
+                ", year=" + getYear() +
+                ", studentId='" + getStudentId() + '\'' +
+                ", yearOfGraduation=" + getYearOfGraduation() +
+                ", department='" + getDepartment() + '\'' +
+                ", courseFee=" + getCourseFee() +
+                ", numOfOnlineClasses=" + numOfOnlineClasses +
+                ", numOfInpersonClasses=" + numOfInpersonClasses +
+                ", semesterFee=" + semesterFee +
+                '}';
     }
 
     

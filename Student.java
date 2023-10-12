@@ -1,8 +1,8 @@
 import java.util.Random;
 
-abstract class Student {
+    enum Year {freshman, sophomore, senior, junior};
 
-    public enum Year {freshman, sophomore, senior, junior};
+abstract class Student {
 
     private String firstName;
     private String lastName;
@@ -12,7 +12,7 @@ abstract class Student {
     private String department;
     private double courseFee;
 
-    public Student(String firstName, String lastName, Student.Year year, String studentId, int yearOfGraduation,
+    public Student(String firstName, String lastName, Year year, String studentId, int yearOfGraduation,
             String department, double courseFee) {
         this.firstName = firstName;
         this.lastName = lastName;
