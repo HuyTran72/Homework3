@@ -28,7 +28,11 @@ public class InpersonStudent extends Student {
     }
 
     public void setNumOfClasses(int numOfClasses) {
-        this.numOfClasses = numOfClasses;
+        if (numOfClasses >= 1 && numOfClasses <= 5) {
+            this.numOfClasses = numOfClasses;
+        } else {
+            throw new IllegalArgumentException("Number of classes must be between 1 and 5");
+        }
     }
 
     public double getSemesterFee() {
@@ -42,6 +46,13 @@ public class InpersonStudent extends Student {
     public void calculateSemesterFee() {
         if(numOfClasses <= 3) {
             semesterFee = getCourseFee() * numOfClasses + parkingFee;
+        } else {
+            semesterFee = getCourseFee() * 3 + parkingFee;
+            int extraClasses = numOfClasses - 3;
+            semesterFee += extraClasses *getCourseFee() * 0.8;
         }
     }
+
+    @Override
+    public 
 }
