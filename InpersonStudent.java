@@ -4,9 +4,9 @@ public class InpersonStudent extends Student {
     private int numOfClasses;
     private double semesterFee;
 
-    public InpersonStudent(String firstName, String lastName, Year sophomore, String studentId, int yearOfGraduation,
+    public InpersonStudent(String firstName, String lastName, Student.Year year, String studentId, int yearOfGraduation,
             String department, double courseFee, double parkingFee, int numOfClasses, double semesterFee) {
-        super(firstName, lastName, sophomore, studentId, yearOfGraduation, department, courseFee);
+        super(firstName, lastName, year, studentId, yearOfGraduation, department, courseFee);
         this.parkingFee = parkingFee;
         this.numOfClasses = numOfClasses;
         this.semesterFee = semesterFee;
