@@ -1,29 +1,24 @@
-public class OnlineStudent extends Student {
-
+class OnlineStudent extends Student {
     private int numOfOnlineClasses;
     private int numOfInpersonClasses;
     private double semesterFee;
-    
-    
 
-    public OnlineStudent(String firstName, String lastName, Student.Year year, String studentId, int yearOfGraduation,
-            String department, double courseFee, int numOfOnlineClasses, int numOfInpersonClasses, double semesterFee) {
-        super(firstName, lastName, year, studentId, yearOfGraduation, department, courseFee);
-        this.numOfOnlineClasses = numOfOnlineClasses;
-        this.numOfInpersonClasses = numOfInpersonClasses;
-        this.semesterFee = semesterFee;
+    public OnlineStudent(String firstName, String lastName, Year year, String department, double courseFee, int numOfOnlineClasses, int numOfInpersonClasses) {
+        super(firstName, lastName, year, department, courseFee);
+        setNumOfOnlineClasses(numOfOnlineClasses);
+        setNumOfInpersonClasses(numOfInpersonClasses);
+        calculateSemesterFee();
     }
-
 
     public int getNumOfOnlineClasses() {
         return numOfOnlineClasses;
     }
 
     public void setNumOfOnlineClasses(int numOfOnlineClasses) {
-        if(numOfOnlineClasses >= 0 && numOfOnlineClasses <= 5){
+        if (numOfOnlineClasses >= 0 && numOfOnlineClasses <= 5) {
             this.numOfOnlineClasses = numOfOnlineClasses;
         } else {
-            throw new IllegalArgumentException("Number of online classes must be between 0 and 5");
+            throw new IllegalArgumentException("Number of online classes must be between 0 and 5.");
         }
     }
 
@@ -32,22 +27,18 @@ public class OnlineStudent extends Student {
     }
 
     public void setNumOfInpersonClasses(int numOfInpersonClasses) {
-        if(numOfInpersonClasses >= 0 && numOfInpersonClasses <= 5){
+        if (numOfInpersonClasses >= 0 && numOfInpersonClasses <= 5) {
             this.numOfInpersonClasses = numOfInpersonClasses;
         } else {
-            throw new IllegalArgumentException("Number of in-person classes must be between 0 and 5");
-
+            throw new IllegalArgumentException("Number of in-person classes must be between 0 and 5.");
         }
     }
 
-    public double getSemesterFee() {
-        return semesterFee;
-    }
-    
+    @Override
     public void calculateSemesterFee() {
-        double onlineClassFee = getCourseFee() * 1.2 * numOfOnlineClasses;
-        double inpersonClassFee = getCourseFee() * numOfInpersonClasses;
-        semesterFee = onlineClassFee + inpersonClassFee;
+        double onlineClassCost = getCourseFee() * 1.2 * numOfOnlineClasses;
+        double inpersonClassCost = getCourseFee() * numOfInpersonClasses;
+        semesterFee = onlineClassCost + inpersonClassCost;
     }
 
     @Override
@@ -64,5 +55,5 @@ public class OnlineStudent extends Student {
                 ", numOfInpersonClasses=" + numOfInpersonClasses +
                 ", semesterFee=" + semesterFee +
                 '}';
-    }    
+    }
 }
